@@ -27,36 +27,37 @@ Only one valid answer exists.
 Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
 */
 
-// O(n^2)
+// O(n)
 var twoSum = function(nums, target){
-    /* javascript sort() converts numbers to string before comparing hence the need 
-       to use a compare fuction to sort numbers in ascending or descending order */
-    /*nums = nums.sort(function(a,b){
-        return a-b;
-    });*/
-
-    //console.log(nums);
-
     var result = [];
+    var dict = {};
 
     for (var i=0; i<nums.length; i++){
-        for (var j=i+1; j<nums.length; j++){
-            if (nums[i] + nums[j] == target){
-                console.log('i = %d, j = %d, nums[i] + nums[j] = %d', i, j, nums[i] + nums[j]);
-                result.push(i,j);
+        if (target - nums[i] > 0){
+            if (dict[target - nums[i]] == undefined){   //key not in dict
+                dict[target - nums[i]] = i;
+            }
+        }
+
+        if (i > 0){
+            if (dict[nums[i]] != undefined){    //key is in dict
+                //console.log(nums[i]);
+                //console.log(dict[nums[i]]);
+                result.push(dict[nums[i]], i);
                 break;
             }
         }
 
-        if (result.length > 0) break;
+        //dict[3]=0
+        //dict[3]=1
     }
 
     return result;
 }
 
 //nums = [2,7,11,15], target = 9      // [0,1]
-//nums = [3,2,4], target = 6          // [1,2]
+nums = [3,2,4], target = 6          // [1,2]
 //nums = [3,3], target = 6            // [0,1]
-nums = [8,13,7,5,3], target = 11    // [0,4]
+//nums = [8,13,7,5,3], target = 11    // [0,4]
 
 console.log(twoSum(nums, target));
