@@ -38,4 +38,15 @@ var powerOfFour = function(n) {
     }
 };
 
+
+/*/ proof and code by: akshaymarch7@leetcode
+x = 4^a
+x = (2^2)^a
+x = 2^(2*a)
+log(x) = log 2^(2*a)  - base 2
+log(x) = 2^a  i.e. log(x) MUST be even
+
+var powerOfFour= n => n>0 && Math.log2(n)%2 === 0;
+*/
+
 console.log(powerOfFour(16));

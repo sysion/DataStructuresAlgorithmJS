@@ -20,7 +20,7 @@ Constraints:
 -2^31 <= n <= 2^31 - 1
 */
 
-powerOfFour = function(n){
+var powerOfFour = function(n){
 	//if (n < 0) n *= -1;
 	if (n <= 0) return false;
 

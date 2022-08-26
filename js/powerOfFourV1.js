@@ -21,7 +21,7 @@ Constraints:
 */
 
 // O(logN)
-powerOfFour = function(n){
+var powerOfFour = function(n){
 	var isPowerOfFour = false;
 	var remainder = -1;
 
