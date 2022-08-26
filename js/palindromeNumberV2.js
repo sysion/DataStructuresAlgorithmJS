@@ -28,26 +28,21 @@ Follow up: Could you solve it without converting the integer to a string?
 
 var palindromeNumber = function(x){
     var isPalindromeNumber = false;
-    var n = ''+x;
-    var xlen = n.length;
-    var xmid = -1;
 
-    if (xlen%2 == 0){
-        xmid = xlen/2;
-        xLeftHalf = n.slice(0, xmid);
-        xRightHalf = n.slice(xmid);
+    if (x < 0){
+        return isPalindromeNumber;
     }
-    else{
-        xmid = 1+(xlen/2);
-        xLeftHalf = n.slice(0, xmid);
-        xRightHalf = n.slice(xmid-1);
-    }
-    
-    xRightHalf = xRightHalf.split('').reverse().join('');
-    console.log(xLeftHalf);
-    console.log(xRightHalf);
 
-    if (xLeftHalf === xRightHalf) isPalindromeNumber = true;
+    var xreversed = x.toString().split('').reverse().join('');
+
+    //console.log(typeof x);              // number
+    //console.log(typeof xreversed);      // string
+
+    console.log(x.toString());
+    console.log(xreversed);
+
+    //if (x === xreversed) isPalindromeNumber = true;   // why is this false?
+    if (x == xreversed) isPalindromeNumber = true;
 
     return isPalindromeNumber;
 }
