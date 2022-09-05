@@ -24,16 +24,17 @@ Both list1 and list2 are sorted in non-decreasing order.
 */
 
 var mergeTwoSortedLists = (list1, list2)=>{
-    if (! list1) return list2;
-    if (! list2) return list1;
-     
-    var result = [...list1,...list2];
-    return result.sort();
+    
+
+    
+
+
+
 };
 
 //list1 = [1,2,4], list2 = [1,3,4]        // [1,1,2,3,4,4]
 //list1 = [], list2 = []                  // []
 //list1 = [], list2 = [0]                 // [0]
-list1 = [1,3,5,7], list2 = [1,2,4,6]    // [1,1,2,3,4,5,6,7]
+list1 = [1,3,5,7], list2 = [1,2,4,6]    // [1,2,3,4,5,6,7]
 
 console.log(mergeTwoSortedLists(list1, list2));
