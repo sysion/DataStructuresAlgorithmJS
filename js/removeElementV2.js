@@ -53,22 +53,13 @@ Constraints:
 */
 
 var removeElement=(nums,val)=>{
-    var i=0,k=0;
-    //var j=nums.length;
+    var k=0;
 
     nums.sort();
 
-    while(i<nums.length){
-        if (nums[i]===val){
-            nums.splice(i,1);
-            //k++;
-            i--;
-        }
-        else{
-            i++;
-        }
-    }
-    //k=j-k;
+    nums=nums.filter(num=>{
+        return num!==val; 
+    });
     k=nums.length;
 
     return k+', nums = '+nums;
