@@ -24,20 +24,56 @@ The list is guaranteed to be sorted in ascending order.
 
 /**
  * Definition for singly-linked list.
- * function ListNode(val, next) {
+ * function ListNode(val) {
  *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
+ *     this.next = null
  * }
  */
+class ListNode{
+	constructor(val){
+		this.val=val;
+		this.next=null;
+	}
+};
+
+function LinkedList(arr){
+	var list=new ListNode(arr[0]);
+	var current=list;
+
+	for(var i=1;i<arr.length;i++){
+		current.next=new ListNode(arr[i]);
+		current=current.next;
+	}
+
+	return list;
+}
+
 /**
  * @param {ListNode} head
  * @return {ListNode}
  */
 let removeDuplicatesFromSortedList = (head)=>{
+	if (!head) return head;
 
+	var current=head;
+
+	while (current){
+		if (current.next!==null && current.val===current.next.val){
+			current.next=current.next.next;
+		}
+		else{
+			current=current.next;
+		}
+	}
+	
+	return head;
 };
 
-head = [1,1,2]				// [1,2]
-head = [1,1,2,3,3]			// [1,2,3]
+//head = [1,1,2]				// [1,2]
+//head = [1,1,2,3,3]			// [1,2,3]
+
+l = [1,1,2]					// [1,2]
+//l = [1,1,2,3,3]				// [1,2,3]
+var head=LinkedList(l);
 
 console.log(removeDuplicatesFromSortedList(head));
